@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Movie } from './Movie';
 
 @Injectable({
@@ -10,6 +10,6 @@ export class FavouriteMoviesService {
   constructor() { }
 
   getFavouriteMovies(): Observable<Movie[]> {
-    return new Observable;
+    return of([]);
   }
 }
