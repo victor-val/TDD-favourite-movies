@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FavouriteMoviesService } from '../favourite-movies.service';
 import { Movie } from '../Movie';
 
 @Component({
@@ -7,11 +9,13 @@ import { Movie } from '../Movie';
   styleUrls: ['./favourite-movies.component.css']
 })
 export class FavouriteMoviesComponent implements OnInit {
-  favoriteMovies!: Movie[];
+  favouriteMovies$!: Observable<Movie[]>;
 
-  constructor() { }
+
+  constructor(private favouriteMovieService: FavouriteMoviesService) { }
 
   ngOnInit(): void {
+    this.favouriteMovies$ = this.favouriteMovieService.getFavouriteMovies();
   }
 
 }
